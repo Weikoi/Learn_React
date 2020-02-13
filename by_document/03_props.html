@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="test">
+
+</div>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
+<script type="text/babel">
+    function Welcome(props) {
+        return <h1>Hello, {props.name}</h1>;
+    }
+
+    // 自定义组件中我们调用 ReactDOM.render() 函数，并传入 <Welcome name="Sara" /> 作为参数。
+    //React 调用 Welcome 组件，并将 {name: 'Sara'} 作为 props 传入。
+    //Welcome 组件将 <h1>Hello, Sara</h1> 元素作为返回值。
+    //  React DOM 将 DOM 高效地更新为 <h1>Hello, Sara</h1>
+    const element = <Welcome name="Sara"/>;
+    ReactDOM.render(
+        element,
+        document.getElementById('test')
+    );
+</script>
+</body>
+</html>
