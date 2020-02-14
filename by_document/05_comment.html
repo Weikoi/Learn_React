@@ -12,7 +12,6 @@
 <script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
 <script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
 <script type="text/babel">
-
     function Comment_origin(props) {
         return (
             <div className="Comment">
@@ -69,6 +68,14 @@
             />
         );
     }
+
+    // todo :: 这种多组件相互调用的情况，应该怎么传递props ??????????
+
+    let data = <Comment date={new Date()} text="ABCDE" Author=""/>;
+    ReactDOM.render(
+      data,
+      document.getElementById('test')
+    );
 </script>
 </body>
 </html>

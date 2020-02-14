@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "test">
+
+</div>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
+<script type="text/babel">
+  const names = ['jQuery', 'Vue', 'React', 'Angular'];
+  const ul =(
+      <ul>{names.map((name)=><li>{name}</li>)}</ul>
+  );
+  ReactDOM.render(
+      ul,
+      document.getElementById('test')
+  )
+</script>
+
+</body>
+</html>

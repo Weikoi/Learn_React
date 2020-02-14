@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="test">
+
+</div>
+<a href="#" onclick="console.log('The link was clicked.'); return false">
+  Click me
+</a>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
+<script type="text/babel">
+    class Toggle extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {isToggleOn: true};
+
+            // 为了在回调中使用 `this`，这个绑定是必不可少的
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick() {
+            this.setState(state => ({
+                isToggleOn: !state.isToggleOn
+            }));
+        }
+
+        render() {
+            return (
+                <button onClick={this.handleClick}>
+                    {this.state.isToggleOn ? 'ON' : 'OFF'}
+                </button>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Toggle />,
+        document.getElementById('test')
+    );
+</script>
+</body>
+</html>
