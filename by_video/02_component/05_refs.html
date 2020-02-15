@@ -5,24 +5,48 @@
   <title>Title</title>
 </head>
 <body>
-<div id="test1"></div>
-<div id="test2"></div>
+<div id="test"></div>
 <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
 <!--<script src="https://cdn.bootcss.com/react/16.10.2/cjs/react.development.js"></script>-->
 <script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
 <script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
 <script type="text/babel">
-  class Person extends React.Component {
+  class Demo extends React.Component {
+    constructor(props) {
+      super(props);
+
+      this.showInput = this.showInput.bind(this);
+      this.handBlur = this.handBlur.bind(this);
+    }
+
+
+    showInput(){
+      // 注意input是对象
+      // const input = this.refs.content;
+      // alert(input.value)
+      alert(this.input.value)
+    }
+
+    // event的使用
+    handBlur(event){
+      alert(event.target.value);
+    }
     render() {
       return (
         <div>
-          <input type="text" placeholder="请输入姓名"/>
-          <button>点击提示</button>
-          <input type="text" placeholder="失去焦点提示"/>
+          <input  ref="content" type="text" placeholder="请输入姓名"/>
+          <input  ref={input => this.input = input} type="text" placeholder="请输入姓名"/>
+          <button onClick={this.showInput}>点击提示</button>
+          <br/>
+          <input type="text" placeholder="失去焦点提示" onBlur={this.handBlur}/>
         </div>
       )
     }
   }
+  ReactDOM.render(
+    <Demo/>,
+    document.getElementById("test")
+  )
 </script>
 </body>
 </html>
