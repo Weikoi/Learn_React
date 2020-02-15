@@ -5,22 +5,32 @@
   <title>Title</title>
 </head>
 <body>
-<div id = "test">
+<div id="test"></div>
 
-</div>
 <script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
 <script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
 <script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
 <script type="text/babel">
-  const names = ['jQuery', 'Vue', 'React', 'Angular'];
-  const ul =(
-      <ul>{names.map((name)=><li>{name}</li>)}</ul>
-  );
+  function Person(props){
+      return(
+          <ul>
+            <li>name:{props.name}</li>
+            <li>age:{props.age}</li>
+            <li>sex:{props.sex}</li>
+          </ul>
+      )
+  }
+
+  const p1 = {
+      name:"AMY",
+      age:18,
+      sex:"male",
+  };
+
   ReactDOM.render(
-      ul,
-      document.getElementById('test')
+      <Person name={p1.name} age={p1.age} sex={p1.sex}/>,
+      document.getElementById("test")
   )
 </script>
-
 </body>
 </html>

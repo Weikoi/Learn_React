@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "test1">
+</div>
+<div id = "test2">
+</div>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
+<script type="text/babel">
+  //工程函数定义组件（没有状态的组件）
+  function Component_function(){
+      return <h1>This is a Function Component</h1>;
+  }
+
+
+  // 使用ES6 类定义组件
+  class Component_class extends React.Component{
+        render(){
+            return <h1>This is a Class Component</h1>;
+        };
+  }
+
+  ReactDOM.render(
+      <Component_function />,
+      document.getElementById('test1')
+  );
+
+  ReactDOM.render(
+      <Component_class />,
+      document.getElementById('test2')
+  );
+</script>
+</body>
+</html>
