@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="test">
+
+</div>
+
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react.js"></script>
+<script src="https://cdn.bootcss.com/react/0.14.7/react-dom.js"></script>
+<script type="text/babel">
+
+  // 注意逻辑运算符可以在JSX中直接使用
+  function Mailbox(props) {
+    const unreadMessages = props.unreadMessages;
+    return (
+      <div>
+        <h1>Hello!</h1>
+        {unreadMessages.length > 0 &&
+        <h2>
+          You have {unreadMessages.length} unread messages.
+        </h2>
+        }
+      </div>
+    );
+  }
+
+  const messages = ['React', 'Re: React', 'Re:Re: React'];
+  ReactDOM.render(
+    <Mailbox unreadMessages={messages} />,
+    document.getElementById('root')
+  );
+</script>
+</body>
+</html>
